@@ -10,19 +10,22 @@ class HomeController extends Controller
 
     public function index()
     {
-        return view('welcome');
+        $message = $this->timeOfDay();
+        return view('welcome', ["greeting" => $message]);
     }
     
-    public static function TimeOfDay()
+    public function timeOfDay()
     {
         $time = date('H');
         if ($time < 12) {
-            return "Morning!";
+            $message = "Good Morning!";
         } elseif ($time <18) {
-            return "Afternoon!";
+            $message = "Good Afternoon!";
         } else {
-            return "Evening!";
+            $message = "Good Evening!";
         }
+
+        return $message;
     }
 
 

@@ -7,7 +7,7 @@
 @section("main")
    
     <section>
-        <p>Good {{ \App\Http\Controllers\HomeController::TimeOfDay() }} </p>
+        <p> {{ $greeting }} </p>
     <section>
 
     <section>

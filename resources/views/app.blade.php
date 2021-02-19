@@ -7,11 +7,11 @@
   </head>
   <body>
     <div class="container">
-        @include("_partials/nav")
+        @include("_partials/nav")<br>
 
-      <main>
-        @yield("title")
-        @yield("main")
+      <main class="mt-4">
+        @yield("title")<br>
+        @yield("main")<br>
       </main>
       <aside>
         @yield("aside")

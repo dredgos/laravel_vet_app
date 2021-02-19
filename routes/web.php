@@ -21,6 +21,11 @@ use App\Http\Controllers\HomeController;
 
 Route::get("/", [HomeController::class, "index"]);
 
-Route::get("/owners", [OwnerController::class, "index"]);
+/* Route for Owners */
 
-Route::get("/owners/{owner}", [OwnerController::class, "show"]);
+Route::group(["prefix" => "owners"], function() {
+    Route::get("/", [OwnerController::class, "index"]);
+    Route::get("/create", [OwnerController::class, "create"]);
+    Route::post("/create", [OwnerController::class, "createPost"]);
+    Route::get("/{owner}", [OwnerController::class, "show"]);
+});
