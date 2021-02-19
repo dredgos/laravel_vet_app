@@ -44,9 +44,4 @@ class Owner extends Model
         return "Yes we have {$number} bananas";
     }
 
-    public static function doesEmailExist($email)
-    {
-        //Owner where email === email using exists method
-
-    }
 }
