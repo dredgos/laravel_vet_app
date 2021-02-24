@@ -32,7 +32,7 @@ Route::group(["prefix" => "owners"], function() {
         Route::get("", [OwnerController::class, "show"]);
         
         
-        Route::group(["prefix" => "animals"], function() {
+        Route::group(["prefix" => "animals", "middleware" => "check.owner"], function() {
             Route::get("", [AnimalController::class, "index"]);
             Route::post("", [AnimalController::class, "store"]);
 

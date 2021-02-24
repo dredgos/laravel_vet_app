@@ -17,8 +17,27 @@ class Animal extends Model
         return $this->belongsTo(Owner::class);
     }
 
+    public function treatments()
+    {
+        return $this->belongsToMany(Treatment::class);
+    }
+
     public function dangerous()
     {
         return $this->biteyness >= 3;
     }
+
+    public function lastUpdated()
+    {
+        return $this->updated_at->diffForHumans();
+    }
+
+    public function setTreatments(array $strings) : Animal
+    {
+        $tags = Treatment::fromStrings($strings);
+        $this->treatments()->sync($tags->pluck("id"));
+        return $this;
+    }
+
+    
 }
