@@ -1,6 +1,6 @@
 @extends ("App")
 
-@section("main")
+@section("content")
 <form class="form card" method="post">
     @csrf
     <h2 class="card-header">Create Owner</h2>

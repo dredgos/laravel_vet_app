@@ -44,4 +44,14 @@ class Owner extends Model
         return "Yes we have {$number} bananas";
     }
 
+    public static function ownerWithEmailExists(string $email) : bool
+    {
+        return Owner::where('email', $email)->exists();
+    }
+
+    public function animals ()
+    {
+        return $this->hasMany(Animal::class);
+    }
+
 }

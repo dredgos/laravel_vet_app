@@ -4,11 +4,12 @@
     <h2 class="md-1"></h2>
 @endsection
 
-@section("main")
+@section("content")
    
     <section>
         <p> {{ $greeting }} </p>
     <section>
+    <br>
 
     <section>
         <h5 class="mb-1">News</h5>

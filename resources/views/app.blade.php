@@ -11,7 +11,7 @@
 
       <main class="mt-4">
         @yield("title")<br>
-        @yield("main")<br>
+        @yield("content")<br>
       </main>
       <aside>
         @yield("aside")

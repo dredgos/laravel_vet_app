@@ -5,15 +5,15 @@
 @endsection
 
 
-@section("main")
+@section("content")
     
 
     @if ($owners->count() === 0)
         <p>No Owners Found</p>
     @else
         @foreach ($owners as $owner)
-            <ul>
-                <li class="mb-1">{{$owner->fullName()}}</li>
+            <ul class="mt-4">
+                <a href="owners/{{$owner->id}}"><li class="list-group-item">{{$owner->fullName()}}</li></a>
             </ul>
         @endforeach
     @endif

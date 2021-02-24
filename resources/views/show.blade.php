@@ -1,7 +1,7 @@
 @extends("App")
 
-@section("main")
-    <section>
+@section("content")
+    <section class="mt-4 list-group-item">
        <p>{{ $owner->fullName() }}</p>
        <p>{{ $owner->fullAddress() }}</p>
        <p>{{ $owner->email }}</p>
