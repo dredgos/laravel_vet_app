@@ -2,7 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\API\ApiOwnerController;
+use App\Http\Controllers\API\OwnerController;
 use App\Http\Controllers\API\Owners\AnimalController;
 
 /*
@@ -22,14 +22,14 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 
 Route::group(["prefix" => "owners"], function() {
-    Route::get("", [ApiOwnerController::class, "index"]);
-    Route::post("", [ApiOwnerController::class, "store"]);
+    Route::get("", [OwnerController::class, "index"]);
+    Route::post("", [OwnerController::class, "store"]);
 
 
     Route::group(["prefix" => "{owner}"], function() {
-        Route::delete("", [ApiOwnerController::class, "destroy"]);
-        Route::put("", [ApiOwnerController::class, "update"]);
-        Route::get("", [ApiOwnerController::class, "show"]);
+        Route::delete("", [OwnerController::class, "destroy"]);
+        Route::put("", [OwnerController::class, "update"]);
+        Route::get("", [OwnerController::class, "show"]);
         
         
         Route::group(["prefix" => "animals"], function() {

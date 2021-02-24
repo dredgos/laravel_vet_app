@@ -13,7 +13,7 @@ class AnimalRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,12 @@ class AnimalRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            "name" => ['required', 'string', 'max:100'],
+            "date_of_birth" => ['required', 'date'],
+            "type" => ['required', 'string', 'max:100'],
+            "weight_kg" => ['required'],
+            "height_m" => ['required'],
+            "biteyness" => ['required'],
         ];
     }
 }
