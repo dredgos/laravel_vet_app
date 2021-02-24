@@ -4,14 +4,17 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Owner;
 
 class Animal extends Model
 {
-    // protected $fillable = ['name', 'owner_id', 'date_of_birth', 'type', 'weight_kg', 'height_m', 'biteyness'];
+    use HasFactory;
+
+    protected $fillable = ['name', 'date_of_birth', 'type', 'weight_kg', 'height_m', 'biteyness'];
 
     public function owner() 
     {
-        $this->belongsTo(Owner::class);
+        return $this->belongsTo(Owner::class);
     }
 
     public function dangerous()

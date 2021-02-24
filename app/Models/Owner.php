@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
+use App\Models\Animal;
 
 class Owner extends Model
 {
@@ -49,7 +50,7 @@ class Owner extends Model
         return Owner::where('email', $email)->exists();
     }
 
-    public function animals ()
+    public function animals()
     {
         return $this->hasMany(Animal::class);
     }

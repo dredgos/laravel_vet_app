@@ -23,7 +23,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::group(["prefix" => "owners"], function() {
     Route::get("", [ApiOwnerController::class, "index"]);
-    Route::post("", [ApiOwnerController::class, "createPost"]);
+    Route::post("", [ApiOwnerController::class, "store"]);
 
 
     Route::group(["prefix" => "{owner}"], function() {
@@ -34,7 +34,7 @@ Route::group(["prefix" => "owners"], function() {
         
         Route::group(["prefix" => "animals"], function() {
             Route::get("", [AnimalController::class, "index"]);
-            Route::post("", [AnimalController::class, "createPost"]);
+            Route::post("", [AnimalController::class, "store"]);
 
 
             Route::group(["prefix" => "{animal}"], function() {

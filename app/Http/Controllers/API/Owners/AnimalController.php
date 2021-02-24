@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Animal;
 use App\Models\Owner;
+use App\Http\Resources\API\AnimalResource;
+use App\Http\Resources\API\AnimalListResource;
 
 class AnimalController extends Controller
 {
@@ -16,8 +18,7 @@ class AnimalController extends Controller
      */
     public function index(Owner $owner)
     {
-        return $owner->animals;
-        // return Animal::find($owner);
+        return AnimalListResource::collection($owner->animals);
     }
 
     /**
@@ -26,9 +27,13 @@ class AnimalController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, Owner $owner)
     {
-        //
+        $data = $request->all();
+        $animal = new Animal($data);
+        $animal->owner()->associate($owner);
+        $animal->save();
+        return new AnimalResource($animal);
     }
 
     /**
@@ -39,7 +44,7 @@ class AnimalController extends Controller
      */
     public function show(Owner $owner, Animal $animal)
     {
-        return $animal;
+        return new AnimalResource ($animal);
     }
 
     /**
@@ -49,9 +54,11 @@ class AnimalController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Owner $owner, Animal $animal)
     {
-        return "update success";
+        $data = $request->all();
+        $animal->fill($data)->save();
+        return new AnimalResource($animal);
     }
 
     /**
@@ -60,16 +67,11 @@ class AnimalController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($animalid)
+    public function destroy(Owner $owner, Animal $animal)
     {
-        return "destroy success";
+        $animal->delete();
+        return response(null, 204);
     }
 
-    public function createPost($request)
-    {
-        return "createpost success";
-        // $data = $request->all();      
-        // $ownerid = Owner::create($data);
-        // return new OwnerResource($ownerid);
-    }
+
 }

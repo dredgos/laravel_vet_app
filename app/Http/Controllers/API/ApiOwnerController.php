@@ -28,9 +28,11 @@ class ApiOwnerController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(OwnerRequest $request)
     {
-        //
+        $data = $request->all();      
+        $owner = Owner::create($data);
+        return new OwnerResource($owner);
     }
 
     /**
@@ -70,10 +72,5 @@ class ApiOwnerController extends Controller
         return response(null, 204);
     }
 
-    public function createPost(OwnerRequest $request)
-    {
-        $data = $request->all();      
-        $owner = Owner::create($data);
-        return new OwnerResource($owner);
-    }
+
 }
