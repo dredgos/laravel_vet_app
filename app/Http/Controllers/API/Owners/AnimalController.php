@@ -5,6 +5,7 @@ namespace App\Http\Controllers\API\Owners;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Animal;
+use App\Models\Owner;
 
 class AnimalController extends Controller
 {
@@ -13,9 +14,10 @@ class AnimalController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Owner $owner)
     {
-        return Animal::all();
+        return $owner->animals;
+        // return Animal::find($owner);
     }
 
     /**
@@ -35,7 +37,7 @@ class AnimalController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Animal $animal)
+    public function show(Owner $owner, Animal $animal)
     {
         return $animal;
     }

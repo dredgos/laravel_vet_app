@@ -39,9 +39,9 @@ class ApiOwnerController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Owner $ownerid)
+    public function show(Owner $owner)
     {
-        return new OwnerResource($ownerid);
+        return new OwnerResource($owner);
     }
 
     /**
@@ -51,11 +51,11 @@ class ApiOwnerController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(OwnerRequest $request, Owner $ownerid)
+    public function update(OwnerRequest $request, Owner $owner)
     {
         $data = $request->all();
-        $ownerid->fill($data)->save();
-        return new OwnerResource($ownerid);
+        $owner->fill($data)->save();
+        return new OwnerResource($owner);
     }
 
     /**
@@ -64,16 +64,16 @@ class ApiOwnerController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Owner $ownerid)
+    public function destroy(Owner $owner)
     {
-        $ownerid->delete();
+        $owner->delete();
         return response(null, 204);
     }
 
     public function createPost(OwnerRequest $request)
     {
         $data = $request->all();      
-        $ownerid = Owner::create($data);
-        return new OwnerResource($ownerid);
+        $owner = Owner::create($data);
+        return new OwnerResource($owner);
     }
 }
