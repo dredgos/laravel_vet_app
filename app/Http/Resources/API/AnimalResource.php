@@ -22,7 +22,8 @@ class AnimalResource extends JsonResource
             "height_m" => $this->height_m,
             "biteyness" => $this->biteyness,
             "owner_name" => $this->owner->fullname(),
-            "last_update" => $this->lastUpdated(),
+            "treatments" => $this->treatments->pluck("name"),
+            "last_update" => $this->lastUpdated(),        
         ];
     }
 }

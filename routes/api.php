@@ -32,19 +32,18 @@ Route::group(["prefix" => "owners"], function() {
         Route::get("", [OwnerController::class, "show"]);
         
         
-        Route::group(["prefix" => "animals", "middleware" => "check.owner"], function() {
+        Route::group(["prefix" => "animals"], function() {
             Route::get("", [AnimalController::class, "index"]);
             Route::post("", [AnimalController::class, "store"]);
 
 
-            Route::group(["prefix" => "{animal}"], function() {
+            Route::group(["prefix" => "{animal}", "middleware" => "check.owner"], function() {
                 Route::get("", [AnimalController::class, "show"]);
                 Route::put("", [AnimalController::class, "update"]);
                 Route::delete("", [AnimalController::class, "destroy"]);
             
             });
         });
-    });
-    
+    });    
 });
 

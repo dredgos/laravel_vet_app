@@ -34,8 +34,8 @@ class Animal extends Model
 
     public function setTreatments(array $strings) : Animal
     {
-        $tags = Treatment::fromStrings($strings);
-        $this->treatments()->sync($tags->pluck("id"));
+        $treatments = Treatment::fromStrings($strings);
+        $this->treatments()->sync($treatments->pluck("id"));
         return $this;
     }
 

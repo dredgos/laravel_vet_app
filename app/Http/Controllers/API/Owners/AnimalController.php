@@ -35,6 +35,11 @@ class AnimalController extends Controller
         $animal = new Animal($data);
         $animal->owner()->associate($owner);
         $animal->save();
+        
+        $treatments = $request->get("treatments");
+        $animal->setTreatments($treatments);
+        
+
         return new AnimalResource($animal);
     }
 
@@ -59,7 +64,10 @@ class AnimalController extends Controller
     public function update(AnimalRequest $request, Owner $owner, Animal $animal)
     {
         $data = $request->all();
-        $animal->fill($data)->save();
+        $animal->fill($data);    
+        $treatments = $request->get("treatments");
+        $animal->setTreatments($treatments);
+        $animal->save();
         return new AnimalResource($animal);
     }
 
