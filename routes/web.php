@@ -37,14 +37,15 @@ Route::group(["prefix" => "owners"], function() {
 
     Route::group(["prefix" => "{owner}"], function (){
         Route::get("", [OwnerController::class, "show"]);
+
+        /* Routes for Animals WIP */
+        Route::group(["prefix" => "animals"], function (){
+            Route::get("", [AnimalController::class, "index"]);
+        });
     });  
         
 });
 
-/* Routes for Animals WIP */
-// Route::group(["prefix" => "animals"], function (){
-//     Route::get("", [AnimalController::class, "show"]);
-// });
 
 Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
 

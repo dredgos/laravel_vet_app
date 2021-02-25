@@ -15,7 +15,7 @@ class CreateTreatmentsTable extends Migration
     {
         Schema::create('treatments', function (Blueprint $table) {
             $table->id();
-            $table->string("name", 100);
+            $table->string("name", 100)->nullable();
         });
 
         Schema::create('animal_treatment', function (Blueprint $table) {

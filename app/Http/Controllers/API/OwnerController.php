@@ -9,7 +9,7 @@ use App\Http\Requests\API\OwnerRequest;
 use App\Http\Resources\API\OwnerResource;
 use App\Http\Resources\API\OwnerListResource;
 
-class ApiOwnerController extends Controller
+class OwnerController extends Controller
 {
     /**
      * Display a listing of the resource.
