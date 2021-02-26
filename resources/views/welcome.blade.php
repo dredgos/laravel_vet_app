@@ -6,7 +6,7 @@
 
 @section("content")
    
-    <section>
+    <section>    
         <p> {{ $greeting }} </p>
     <section>
     <br>

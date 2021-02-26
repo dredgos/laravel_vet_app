@@ -55,4 +55,9 @@ class Owner extends Model
         return $this->hasMany(Animal::class);
     }
 
+    public function lastUpdated()
+    {
+        return $this->updated_at->diffForHumans();
+    }
+
 }

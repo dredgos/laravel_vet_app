@@ -18,11 +18,11 @@ class HomeController extends Controller
     {
         $time = date('H');
         if ($time < 12) {
-            $message = "Good Morning!";
+            $message = "Good Morning";
         } elseif ($time <18) {
-            $message = "Good Afternoon!";
+            $message = "Good Afternoon";
         } else {
-            $message = "Good Evening!";
+            $message = "Good Evening";
         }
 
         return $message;

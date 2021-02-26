@@ -28,7 +28,7 @@ Route::get("/", [HomeController::class, "index"]);
 /* Route for Owners */
 
 Route::group(["prefix" => "owners"], function() {
-    Route::get("/", [OwnerController::class, "index"]);
+    Route::get("", [OwnerController::class, "index"]);
 
     Route::group(["middleware" => "auth"], function (){
         Route::get("create", [OwnerController::class, "create"]);
@@ -41,7 +41,13 @@ Route::group(["prefix" => "owners"], function() {
         /* Routes for Animals WIP */
         Route::group(["prefix" => "animals"], function (){
             Route::get("", [AnimalController::class, "index"]);
+            Route::post("create", [AnimalController::class, "store"]);
+
+            Route::group(["prefix" => "{animal}"], function (){
+                Route::get("", [AnimalController::class, "show"]);
+            });
         });
+
     });  
         
 });

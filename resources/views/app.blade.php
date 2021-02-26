@@ -8,15 +8,22 @@
   <body>
     <div class="container">
         @include("_partials/nav")<br>
-
-      <main class="mt-4">
-        @yield("title")<br>
-        @yield("content")<br>
-      </main>
-      <aside>
-        @yield("aside")
-      </aside>
-
+        @if (!Auth::check())
+        @endif
+        @if (Auth::check())
+        <p>Logged in as {{Auth::user()->name}}</p>
+        @endif
+        
+        <main class="mt-4">
+          @yield("title")<br>
+          @yield("content")<br>
+        </main>
+        <aside>
+          @yield("aside")
+        </aside>
+        
+        @include("_partials/logout")
+        <br>
       
       @include("_partials/footer")
       
