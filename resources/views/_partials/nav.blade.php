@@ -7,8 +7,7 @@
     @endif
 
     @if (Auth::check())
-    <a class="navbar-brand" href="/owners/create">Create New Owner</a>
-    <a class="navbar-brand" href="/owners/1/animals/create">Create New Animal</a> 
+    <a class="navbar-brand" href="/owners/create">Create New Owner</a> 
     @endif
 
     

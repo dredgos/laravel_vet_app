@@ -12,5 +12,7 @@
             @endforeach
         </p>
         <p><strong>Last Updated: </strong>{{ $owner->lastUpdated() }}</p>
+        <br>
+        <a href="/owners/{{$owner->id}}/animals/create"><button class="btn btn-secondary">Add New Animal</button></a>
     </section>
 @endsection

@@ -15,7 +15,9 @@
             <ul class="mt-4">
                 <a href="owners/{{$owner->id}}"><li class="list-group-item">{{$owner->fullName()}}</li></a>
             </ul>
+    
         @endforeach
     @endif
+
 
 @endsection

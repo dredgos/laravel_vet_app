@@ -41,6 +41,7 @@ Route::group(["prefix" => "owners"], function() {
         /* Routes for Animals WIP */
         Route::group(["prefix" => "animals"], function (){
             Route::get("", [AnimalController::class, "index"]);
+            Route::get("create", [AnimalController::class, "create"]);
             Route::post("create", [AnimalController::class, "store"]);
 
             Route::group(["prefix" => "{animal}"], function (){

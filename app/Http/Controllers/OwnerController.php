@@ -29,7 +29,7 @@ class OwnerController extends Controller
         return view('form');
     }
 
-    public function createPost(OwnerRequest $request)
+    public function store(OwnerRequest $request)
     {
         // accept the data
         $data = $request->all();
