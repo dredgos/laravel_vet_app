@@ -43,7 +43,10 @@ Route::group(["prefix" => "owners"], function() {
                 Route::delete("", [AnimalController::class, "destroy"]);
             
             });
+
         });
-    });    
+
+    }); 
+       
 });
 
